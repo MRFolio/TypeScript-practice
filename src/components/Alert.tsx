@@ -20,12 +20,43 @@ const v1 = makeArray<number, number>(2, 5);
 const v2 = makeArray<number, string>(2, 'tere');
 const v3 = makeArray<string | null>('a', 'kartul');
 
+const planets = {
+  mercury: { name: 'Mercury', position: 1 },
+  venus: { name: 'Venus', position: 2 },
+  earth: { name: 'Earth', position: 3 },
+};
+
+interface IObjectKeys {
+  [key: string]: string | number | undefined;
+}
+
+interface IPlanetObjects extends IObjectKeys {
+  name: string;
+  position?: number;
+}
+
+// const planetsArr: IObjectKeys[] = Object.keys(planets).map(
+//   (key: any): any => planets[key]
+// );
+// console.log('planetsArr', planetsArr);
+
 const AlertComponent = ({
   show,
   setShow,
 }: AlertComponentProps): JSX.Element => {
   // const name = <T>(array: T[]): T => {
   //     return array.length};
+
+  const arrayExample = [
+    { id: 0, name: 'Mary' },
+    { id: 1, name: 'John' },
+  ];
+
+  const exampleMap = arrayExample.map(({ id, name }) => ({
+    id: id + 1,
+    name: `${name} ...`,
+  }));
+  console.log(exampleMap);
 
   return (
     <>
